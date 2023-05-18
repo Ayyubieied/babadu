@@ -75,8 +75,16 @@ WSGI_APPLICATION = 'tk_babadu.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'OPTIONS': {
+            'options': '-c search_path=babadu'
+        },
+        'NAME': 'railway',
+        'USER': 'postgres',
+        #diganti sesuai railway
+        'PASSWORD': 'y9a1zNV2FmVbQECwKeEq',
+        'HOST': 'containers-us-west-25.railway.app',
+        'PORT': '7777',
     }
 }
 
