@@ -19,6 +19,37 @@ def register(request):
     return render(request, 'register.html')
         
 def register_atlet(request):
+    # if request method post, case 
+    if (request.method == 'POST' or request.method == 'post') and not request.method == 'GET':
+        nama = request.POST.get('nama')
+        email = request.POST.get('email')
+        negara = request.POST.get('negara')
+        tanggal_lahir = request.POST.get('tanggal_lahir')
+        play = request.POST.get('play')
+        tinggi_badan = request.POST.get('tinggi_badan')
+        jenis_kelamin = request.POST.get('jenis_kelamin')
+
+        if nama == '' or email == '' or negara == '' or tanggal_lahir == '' or play == '' or tinggi_badan == '' or jenis_kelamin == '':
+            context = {
+                'msg': 'Semua field harus diisi'
+            }
+            return render(request, 'register-atlet.html', context)
+        if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+            context = {
+                'msg': 'Format email tidak valid'
+            }
+            return render(request, 'register-atlet.html', context)
+        if not re.match(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", tanggal_lahir):
+            context = {
+                'msg': 'Format tanggal lahir tidak valid. Gunakan format YYYY-MM-DD'
+            }
+            return render(request, 'register-atlet.html', context)
+        if not re.match(r"[0-9]{3}", tinggi_badan):
+            context = {
+                'msg': 'Format tinggi badan tidak valid. Gunakan format XXX cm'
+            }
+            return render(request, 'register-atlet.html', context)
+
     return render(request, 'register-atlet.html')
 def register_umpire(request):
     return render(request, 'register-umpire.html')
