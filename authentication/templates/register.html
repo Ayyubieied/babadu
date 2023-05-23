@@ -1,0 +1,78 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+<!-- link the home.css -->
+{% block meta %}
+{% endblock meta %}
+
+{% block content %}
+<div class="px-4 py-5 mx-auto text-center">
+  <h1 class="display-5 fw-bold my-5">Pilih role Anda:</h1>
+   <div class="d-grip gap-2 d-sm-flex justify-content-sm-center">
+    <form id="selectionForm">
+        <label class="radio-label">
+          <input type="radio" name="option" value="atlet"> atlet
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="option" value="pelatih"> pelatih
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="option" value="umpire"> umpire
+        </label>
+      </form>
+
+   </div>
+  <div class="col-lg-6 mx-auto my-5">
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+
+      <button type="button" class="btn btn-dark  btn-lg px-4 gap-3 " id="button-login" onclick
+        ="submitForm()">Next</button>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+<script>
+    function submitForm() {
+      var form = document.getElementById("selectionForm");
+      var selectedOption = form.querySelector('input[name="option"]:checked');
+
+      if (selectedOption) {
+        if(selectedOption.value == 'atlet'){
+            window.location.href = 'atlet';
+            } else if(selectedOption.value == 'pelatih'){
+            window.location.href = 'pelatih';
+            } else if(selectedOption.value == 'umpire'){
+            window.location.href = 'umpire';
+        }
+      } else {
+        alert("Please select an option.");
+      }
+    }
+    function navigatePage() {
+    var radios = document.getElementsByName('role-selection');
+    var selectedValue;
+    
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+        selectedValue = radios[i].value;
+        break;
+        }
+    }
+    
+    if (selectedValue === 'atlet') {
+        window.location.href = 'atlet';
+    } else if (selectedValue === 'pelatih') {
+        window.location.href = 'pelatih';
+
+    } else if (selectedValue === 'umpire') {
+        window.location.href = 'umpire';
+    }
+    }
+
+</script>
+
+{% endblock script %}

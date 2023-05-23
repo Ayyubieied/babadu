@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+<!-- link the home.css -->
+{% block meta %}  
+  <title>Babadu - Home</title>
+    <link rel="stylesheet" href="/authentication/css/home.css">
+{% endblock meta %}
+
+{% block content %}
+<!--  make a box in the middle of screen -->
+<div class="px-4 py-5 mx-auto text-center">
+  <!-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+  <h1 class="display-5 fw-bold my-5">Kelompok 11 - Babadu</h1>
+  <div class="col-lg-6 mx-auto">
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        
+        <!-- href to login -->
+        
+      <a type="button" class="btn btn-dark  btn-lg px-4 gap-3 " id="button-login" href="{% url 'login' %}">Login</a>
+        <!-- href to register -->
+        
+      <a type="button" class="btn btn-outline-secondary btn-lg  " href="{% url 'register' %}" >Sign up</a>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
