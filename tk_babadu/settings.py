@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authentication',
+    'ujian_kualifikasi',
+    'daftar_atlet',
+    'pertandingan2',
+    'daftar_event',
+    'dashboard_event',
 ]
 
 MIDDLEWARE = [
@@ -69,7 +74,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'tk_babadu.wsgi.application'
-CSRF_TRUSTED_ORIGINS = ['https://http://127.0.0.1:8000/', 'https://tk-c11-babadu-production.up.railway.app']
+# CSRF_TRUSTED_ORIGINS = ['*']
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% load static %}
+<!-- link the home.css -->
+{% block meta %}
+<title>Ujian</title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class="px-4 py-5 m-100vh text-center">
+
+    <!-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+    <h1 class="display-5 fw-bold my-5">Ujian Kualifikasi</h1>
+    <div class="container">
+        <div class="row justify-content-sm-center">
+            <div class="col-sm justify-content-sm-center">
+                <h1>Ujian</h1>
+                <div class="card" style="width: 100vh;">
+                    <div class="card-body">
+                        <h5 class="card-title"> <strong> How many letters are ther in "JS"?</strong> </h5>
+                        <p class="card-text">Jawab:</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question0" value="A" /><span>2</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question0" value="B" /><span>1</span></label>
+                        </li>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question0" value="C" /><span>3</span></label>
+                        </li>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-sm">
+                <h1>Ujian</h1>
+                <div class="card" style="width: 100vh;">
+                    <div class="card-body">
+                        <h5 class="card-title"> <strong> How many letters are ther in "JS"?</strong> </h5>
+                        <p class="card-text">Jawab:</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question0" value="A" /><span>2</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question0" value="B" /><span>1</span></label>
+                        </li>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question0" value="C" /><span>3</span></label>
+                        </li>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-sm">
+                <h1>Ujian</h1>
+                <div class="card" style="width: 100vh;">
+                    <div class="card-body">
+                        <h5 class="card-title"> <strong> How many letters are ther in "JS"?</strong> </h5>
+                        <p class="card-text">Jawab:</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question0" value="A" /><span>2</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question0" value="B" /><span>1</span></label>
+                        </li>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question0" value="C" /><span>3</span></label>
+                        </li>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="view-results" onclick="returnScore()">View Results</button>
+    <span id="myresults" class="my-results">My results will appear here</span>
+    {% endblock content %}
+
+    {% block script %}
+    <script>
+        var answers = ["A", "C", "B"],
+            tot = answers.length;
+        function getCheckedValue(radioName) {
+            var radios = document.getElementsByName(radioName);
+            for (var y = 0; y < radios.length; y++)
+                if (radios[y].checked) return radios[y].value;
+        }
+        function getScore() {
+            var score = 0;
+            for (var i = 0; i < tot; i++)
+                if (getCheckedValue("question" + i) === answers[i]) score += 1;
+            return score;
+        }
+        function returnScore() {
+            document.getElementById("myresults").innerHTML =
+                "Your score is " + getScore() + "/" + tot;
+            if (getScore() > 2) {
+                console.log("Bravo");
+            }
+        }
+    </script>
+    {% endblock script %}

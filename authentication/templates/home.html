@@ -1,15 +1,65 @@
-<!-- extends base html -->
 {% extends 'base.html' %}
+{% load custom_tags %}
 
+{% load static %}
 <!-- link the home.css -->
 {% block meta %}
+<title>Dashboard</title>
 {% endblock meta %}
 
 {% block content %}
-<!-- get data from context -->
-<h1>{{role}}</h1>
-<h1>{{id}}</h1>
-<h2>{{email}}</h2>
-<h2>{{nama}}</h2>
-<h1></h1>
+<div class="px-4 py-5 m-100vh text-center">
+  <!-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+  <h1 class="display-5 fw-bold my-5">Dashboard</h1>
+  <div class="col-lg-6 mx-auto">
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <div class="container mx-auto my-0">
+            <dt class="col text-center">
+              {% if role == "umpire"  %}
+                <div>
+                    <a href="https://imgbb.com/"><img src="https://i.ibb.co/5G94TW2/Umpire.png" alt="Umpire" border="0" class="mx-auto d-block" width="300" height="300"/></a>
+                </div>
+              {% endif %}
+
+              {% if role == "pelatih"  %}
+                <div>
+                    <a href="https://imgbb.com/"><img src="https://tse1.mm.bing.net/th?id=OIP.7ipRiXdgr2yyTT1ygQ8Y2QHaHa&pid=Api&P=0&h=180" alt="Umpire" border="0" class="mx-auto d-block" width="300" height="300"/></a>
+                </div>
+              {% endif %}
+
+              {% if role == "atlet-kualifikasi" or role == "atlet-non-kualifikasi" %}
+                <div>
+                    <a href="https://imgbb.com/"><img src="https://cdn1.iconfinder.com/data/icons/avatar-2-2/512/Atlet-1024.png" alt="Umpire" border="0" class="mx-auto d-block" width="300" height="300"/></a>
+                </div>
+              {% endif %}
+            </dt>
+            <div class="container m-lg-10 mx-auto my-0">
+                <h2 class="col-sm text-center">Welcome, {% role_tag %} !!!</h2>
+                <dt class="col-sm text-center">Nama Lengkap: {{nama}}</dt>
+                {% if role != "pelatih"  %}
+                <dt class="col-sm text-center">Negara: {{negara}}</dt>
+                {% endif %}
+                <dt class="col-sm text-center">Email: {{email}}</dt>
+                {% if role == "pelatih"  %}
+                <dt class="col-sm text-center">Spesialisasi Kategori: {{spesialisasi}}</dt>
+                <dt class="col-sm text-center">Tanggal Mulai: {{tanggal_mulai}}</dt>
+
+                {% endif %}
+
+                {% if role == "atlet-kualifikasi" or role == "atlet-non-kualifikasi" %}
+                <dt class="col-sm text-center">Tanggal Lahir: {{tgl_lahir}}</dt>
+                <dt class="col-sm text-center">Play: {{play}}</dt>   
+                <dt class="col-sm text-center"> Tinggi badan: {{tinggi_badan}}</dt>   
+                <dt class="col-sm text-center"> Jenis Kelamin: {{jenis_kelamin}}</dt>   
+                <dt class="col-sm text-center"> Pelatih: {{pelatih}}</dt>   
+                <dt class="col-sm text-center"> Status: {{status}}</dt>   
+                <dt class="col-sm text-center"> World Rank: {{world_rank}}</dt>   
+                <dt class="col-sm text-center"> Total Poin: {{total_point}}</dt>   
+                    {% endif %}
+
+            </div> 
+        </div> 
+    </div> 
+  </div>
+</div>
 {% endblock content %}

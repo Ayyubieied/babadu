@@ -1,0 +1,87 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+<!-- link the home.css -->
+{% block meta %}
+<title>List Event</title>
+{% endblock meta %}
+
+{% block content %}
+{% load custom_tags %}
+<div class="px-4 py-5 m-100vh text-center">
+  <!-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+  <h1 class="display-5 fw-bold my-5">List Ujian Kualifikasi</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Tahun </th>
+        <th scope="col">Batch</th>
+        <th scope="col">Tempat</th>
+        <th scope="col">Tanggal</th>
+        <th scope="col">Action</th>
+        
+      </tr>
+    </thead>
+    <tbody name="ujain">
+        {% for ujian in data_ujian %}
+        <tr>
+            <td>{{ujian.0}}</td>
+            <td>{{ujian.1}}</td>
+            <td>{{ujian.2}}</td>
+            <td>{{ujian.3}}</td>
+            <td>        <button type="button" class="btn btn-secondary" name="{{ujian.0}}-{{ujian.1}}-{{ujian.2}}-{{ujian.3}}" >Mulai</button></td>
+        </tr>
+        {% endfor %}
+        
+   
+    </tbody>
+  </table>
+  
+  
+</div>
+{% block     script %}
+<!-- make a onclick function when button mulai clicked navigate to pertandingan.html -->
+<script>
+    // Get all buttons with class "my-button"
+var buttons_gabing = document.querySelectorAll('.btn');
+
+// Loop over each button and add a click listener
+buttons_gabing.forEach(button => {
+  button.addEventListener('click', event => {
+    // Find the parent row of the clicked button
+    const row = event.target.closest('tr');
+    
+    // Get the name attribute of the clicked button
+    const actionName = button.getAttribute('name');
+
+    var split = actionName.split("-");
+    var tahun = split[0];
+    var batch = split[1];
+    var tempat = split[2];
+    var tanggal = split[3];
+    const dateObj = new Date(tanggal);
+    const formattedDate = dateObj.toISOString().slice(0, 10);
+    console.log(formattedDate); 
+
+    // add attribute href to button
+    button.setAttribute("href", "../ujian-kualifikasi/check/"+tahun+"/"+batch+"/"+formattedDate+"/"+tempat+"/");
+    // Navigate to href location
+    window.location.href =  "../ujian-kualifikasi/check/"+tahun+"/"+batch+"/"+tempat+"/"+formattedDate+"/";
+    // Log the ID and action name of the clicked row
+    console.log(`Clicked row ID: ${row.childNodes[1].innerText}, Action name: ${actionName}`);
+
+  });
+});
+
+// after 2 seconds refresh page
+setTimeout(function(){
+   window.location.reload(1);
+}, 2000);
+
+</script>
+{% endblock script %}
+
+
+
+{% endblock content %}

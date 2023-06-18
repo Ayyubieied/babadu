@@ -6,8 +6,9 @@ deploy-railway:
   image: ubuntu
   only:
     - pushes
-    - main
+    - gabriel_baru
   script:
     - apt-get update && apt-get install -y curl
     - curl -fsSL https://railway.app/install.sh | sh
+    - echo $RAILWAY_TOKEN | railway login
     - railway up --service=$RAILWAY_SERVICE_NAME -d

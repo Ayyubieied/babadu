@@ -1,0 +1,52 @@
+{% extends 'base.html' %} 
+{% load custom_tags %}
+
+{% load static %}
+<!-- link the home.css -->
+{% block meta %}
+<title>List Event</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="px-4 py-5 m-100vh text-center">
+  <!-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+  <h1 class="display-5 fw-bold my-5">List Ujian Kualifikasi</h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Tahun </th>
+        <th scope="col">Batch</th>
+        <th scope="col">Tempat</th>
+        <th scope="col">Tanggal</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for ujian in data_ujian %}
+        <tr>
+            <td>{{ujian.0}}</td>
+            <td>{{ujian.1}}</td>
+            <td>{{ujian.2}}</td>
+            <td>{{ujian.3}}</td>
+        </tr>
+        {% endfor %}
+        
+   
+    </tbody>
+  </table>
+  
+  
+</div>
+{% block     script %}
+<!-- make a onclick function when button mulai clicked navigate to pertandingan.html -->
+<script>
+    function navigateToPertandingan(){
+        window.location.href = '../pertandingan';
+    }
+   
+</script>
+{% endblock script %}
+
+
+
+{% endblock content %}

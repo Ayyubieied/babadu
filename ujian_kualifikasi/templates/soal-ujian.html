@@ -1,0 +1,247 @@
+{% extends 'base.html' %} 
+{% load custom_tags %}
+
+{% load static %}
+<!-- link the home.css -->
+{% block meta %}
+<title>Ujian</title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class="px-4 py-5 m-100vh text-center">
+    <h1 class="display-5 fw-bold my-5" id="header">Ujian Kualifikasi</h1>
+    <div class="container">
+        <div class="row justify-content-center"> <!-- Removed 'sm' from justify-content-sm-center -->
+            <div class="col-sm-4"> <!-- Added a specific column width to control card size -->
+                <div class="alert alert-success" role="alert" id="alert-succes" style="display: none;">
+                    Selamat! Anda lulus ujian Kualifikasi
+                    <div> <strong>Skor Anda:</strong></div>
+                    <div>
+                        <h1 id="result">{{score}}</h1>
+                    </div>
+                </div>
+
+                <div class="alert alert-danger" role="alert"  id="alert-failed" style="display: none;">
+                    Maaf! Anda Belum lulus ujian Kualifikasi
+                    Anda bisa mencoba ujian selanjutnya
+                    <div> <strong>Skor Anda:</strong></div>
+                    <div>
+                        <h1 id="result-2">{{score}}</h1>
+                    </div>
+                  </div>
+
+                
+                <h3>Pertanyaan 1</h3>
+                <div class="card mx-auto" style="width: 20rem;">
+                    <!-- Added 'mx-auto' class to center the card horizontally -->
+                    <!-- Rest of the card code remains the same -->
+                    <div class="card-body">
+                        <h5 class="card-title"> <strong> Dalam permainan ganda putra atau putri, berapa jumlah maksimum
+                                pukulan yang diizinkan sebelum bola harus melewati net ke sisi lawan?</strong> </h5>
+                        <p class="card-text">Jawab:</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question0" value="A" /><span>2</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question0" value="B" /><span>3</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question0" value="C" /><span>4</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label for="">
+                                <input type="radio" name="question0" value="D"><span>5</span>
+                            </label>
+                        </li>
+                    </ul>
+
+                </div>
+                <!-- pertanyaan 2 -->
+                <h3 class="my-3">Pertanyaan 2</h3>
+                <div class="card mx-auto" style="width: 20rem;">
+                    <!-- Added 'mx-auto' class to center the card horizontally -->
+                    <!-- Rest of the card code remains the same -->
+                    <div class="card-body">
+                        <h5 class="card-title"> <strong>Apa nama teknik yang melibatkan pukulan dengan shuttlecock di
+                                bawah net secara cepat dan rendah, umumnya digunakan untuk menyerang atau mengecoh
+                                lawan?</strong> </h5>
+                        <p class="card-text">Jawab:</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question1" value="A" /><span>Dropshot</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question1" value="B" /><span>Smash</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question1" value="C" /><span>Clear</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label for="">
+                                <input type="radio" name="question1" value="D"><span>Drive</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- pertanyaan 3 -->
+                <h3 class="my-3">Pertanyaan 3</h3>
+                <div class="card mx-auto" style="width: 20rem;">
+                    <!-- Added 'mx-auto' class to center the card horizontally -->
+                    <!-- Rest of the card code remains the same -->
+                    <div class="card-body">
+                        <h5 class="card-title"> <strong>
+                                Apa istilah yang digunakan untuk menggambarkan situasi ketika kedua pemain atau pasangan
+                                mencapai skor yang sama dalam pertandingan, dan satu pihak harus mencapai selisih dua
+                                poin untuk memenangkan set?
+                            </strong> </h5>
+                        <p class="card-text">Jawab:</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question2" value="A" /><span>Deuce</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question2" value="B" /><span>Match Point</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question2" value="C" /><span>Advantage</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label for="">
+                                <input type="radio" name="question2" value="D"><span>Rally</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- pertanyaan 4 -->
+                <h3 class="my-3">Pertanyaan 4</h3>
+                <div class="card mx-auto" style="width: 20rem;">
+                    <!-- Added 'mx-auto' class to center the card horizontally -->
+                    <!-- Rest of the card code remains the same -->
+                    <div class="card-body">
+                        <h5 class="card-title"> <strong>
+                                Berapa berat shuttlecock yang digunakan dalam pertandingan resmi badminton?
+                            </strong> </h5>
+                        <p class="card-text">Jawab:</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question3" value="A" /><span>3 gram</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question3" value="B" /><span>4 gram</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question3" value="C" /><span>5 gram</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label for="">
+                                <input type="radio" name="question3" value="D"><span>6 gram</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- pertanyaan 5 -->
+                <h3 class="my-3">Pertanyaan 5</h3>
+                <div class="card mx-auto" style="width: 20rem;">
+                    <!-- Added 'mx-auto' class to center the card horizontally -->
+                    <!-- Rest of the card code remains the same -->
+                    <div class="card-body">
+                        <h5 class="card-title"> <strong>
+                                Apa nama teknik pukulan yang dilakukan dengan gerakan tangan seperti melambai dan
+                                digunakan untuk mengirim shuttlecock melintasi lapangan dengan kecepatan tinggi?
+                            </strong> </h5>
+                        <p class="card-text">Jawab:</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question4" value="A" /><span>Lob</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question4" value="B" /><span>Net Shot</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label><input type="radio" name="question4" value="C" /><span>Flick</span></label>
+                        </li>
+                        <li class="list-group-item">
+                            <label for="">
+                                <input type="radio" name="question4" value="D"><span>Dropshot</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <button class="btn btn-dark my-5 m-5 mx-auto view-results" onclick="returnScore()">View Results</button>
+                <span id="myresults" class="my-results mx-auto">My results will appear here</span>
+
+
+            </div>
+
+        </div>
+        <!-- Repeat the above code for the remaining columns -->
+    </div>
+</div>
+<!-- Rest of the code remains the same -->
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+
+    var answers = ["B", "A", "A", "C", "C"],
+        tot = answers.length;
+    function getCheckedValue(radioName) {
+        var radios = document.getElementsByName(radioName);
+        for (var y = 0; y < radios.length; y++)
+            if (radios[y].checked) return radios[y].value;
+    }
+    function getScore() {
+        var score = 0;
+        for (var i = 0; i < tot; i++)
+            if (getCheckedValue("question" + i) === answers[i]) score += 1;
+        return score;
+    }
+    function returnScore() {
+        var score = getScore();
+
+        var score_calculated = score / 5 * 100;
+        document.getElementById("myresults").innerHTML =
+        "Your score is " + getScore() + "/" + tot;
+        if (getScore() > 3) {
+            document.getElementById("result").innerHTML = score_calculated;
+            document.getElementById("alert-succes").style.display = "block";
+        } else{
+            document.getElementById("result-2").innerHTML = score_calculated;
+
+            document.getElementById("alert-failed").style.display = "block";
+        }
+        document.getElementById("header").scrollIntoView();
+        postScore();
+    }
+
+
+    // make js function for posting score to django views
+    function postScore() {
+        var score = getScore();
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "http://127.0.0.1:8000/ujian-kualifikasi/ujian/", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("score=" + score);
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        };
+    }
+
+</script>
+{% endblock script %}

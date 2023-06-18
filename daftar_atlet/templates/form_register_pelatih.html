@@ -1,0 +1,178 @@
+
+{% load static %}
+
+{% block content %}  
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-cTyOapdHyvCHx93qmCIpo+fgnnIaLhq8pEg21J+lrwVqzAqvbWcUpmALlZFnf7V2YnHPnJ7VUdL6+W1HozN+xw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+  />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+   
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+        <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <img
+            src="https://comunidadbabadu.com/wp-content/uploads/2023/01/Babadu-Logo.png"
+            height="30"
+            alt="MDB Logo"
+            loading="lazy"
+          />
+        <span class="badge rounded-pill badge-notification bg-success">Pelatih</span>
+  
+        </a>
+        
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Dashboard</a> 
+            
+            
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Daftar Atlet</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">List Atlet</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+  
+      <!-- Right elements -->
+      <div class="d-flex align-items-center">
+        <!-- Icon -->
+        <button type="button" class="btn btn-danger mx-2 ">Log Out</button>
+      </div>
+      <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Start Form -->
+  <div class="row justify-content-center">
+    <h1 class="text-center mb-4 mt-5">Registrasi Pelatih</h1>
+    <div class="col-lg-6 col-md-8">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body">
+ 
+    <div class="register-pelatih mx-auto mb-5">
+        <form method="POST" action="">
+
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="nama-pelatih">Nama:</label>
+            <input type="text" name="nama-pelatih" placeholder="Nama" class="form-control" required>
+        </div>
+    
+        <div class="mb-3">
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Email" class="form-control" required>
+        </div>
+    
+        <div class="mb-3">
+            <label for="kategori">Kategori:</label>
+            <div class="form-check">
+            <input type="checkbox" name="kategori[]" value="Tunggal Putra" class="form-check-input" id="tunggal-putra">
+            <label class="form-check-label" for="tunggal-putra">Tunggal Putra</label>
+            </div>
+            <div class="form-check">
+            <input type="checkbox" name="kategori[]" value="Tunggal Putri" class="form-check-input" id="tunggal-putri">
+            <label class="form-check-label" for="tunggal-putri">Tunggal Putri</label>
+            </div>
+            <div class="form-check">
+            <input type="checkbox" name="kategori[]" value="Ganda Putra" class="form-check-input" id="ganda-putra">
+            <label class="form-check-label" for="ganda-putra">Ganda Putra</label>
+            </div>
+            <div class="form-check">
+            <input type="checkbox" name="kategori[]" value="Ganda Putri" class="form-check-input" id="ganda-putri">
+            <label class="form-check-label" for="ganda-putri">Ganda Putri</label>
+            </div>
+            <div class="form-check">
+            <input type="checkbox" name="kategori[]" value="Ganda Campuran" class="form-check-input" id="ganda-campuran">
+            <label class="form-check-label" for="ganda-campuran">Ganda Campuran</label>
+            </div>
+        </div>
+    
+        <div class="mb-3">
+            <label for="tanggal_mulai">Tanggal Mulai:</label>
+            <div class="input-group">
+            <input type="text" class="form-control" name="tanggal_mulai" id="tanggal_mulai" placeholder="Pilih Tanggal" autocomplete="off">
+            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="datepicker" data-bs-target="#tanggal_mulai"><i class="bi bi-calendar"></i></button>
+            </div>
+        </div>
+        <div class="text-center">
+        <button type="submit" name="submit" value="Register" class="btn btn-primary">Daftar Pelatih</button>
+        </div>
+        </form>
+     </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+</body>
+{% endblock content %}
+
+<style>
+  .dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+
+  body{
+    background: url('https://source.unsplash.com/twukN12EN7c/1920x1080') no-repeat center center fixed;
+  }
+</style>
