@@ -21,4 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(('authentication.urls', 'authentication'),)),
     path('ujian-kualifikasi/', include(('ujian_kualifikasi.urls', 'ujian_kualifikasi'),)),
+    path('daftar-atlet/', include(('daftar_atlet.urls', 'daftar_atlet'),)),
+    path('pertandingan2/', include(('pertandingan2.urls', 'pertandingan2'),)),
+    path('daftar-event/', include(('daftar_event.urls', 'daftar_event'),)),
+    path('dashboard-event/', include(('dashboard_event.urls', 'dashboard_event'),)),
 ]

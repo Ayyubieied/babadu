@@ -51,7 +51,7 @@ def show_ujian(request):
     role_user = request.COOKIES.get('role')
     if role_user is None:
         return HttpResponseRedirect(reverse('authentication:show_main'))
-    elif role_user  == 'atlet':
+    elif 'atlet' in role_user:
         result = execute_query(f'SELECT * FROM babadu.ujian_kualifikasi;')
         print(result)
         response =  render(request, 'list-ujian-atlet.html', {'data_ujian': result})
@@ -116,7 +116,7 @@ def show_riwayat(requesŧ):
         
         return render(requesŧ, 'riwayat-ujian-umpire.html', {'data_ujian': result})
 
-    elif requesŧ.COOKIES.get('role') == 'atlet':    
+    elif "atlet" in requesŧ.COOKIES.get('role') :    
         
         result = execute_query(f'SELECT * FROM atlet_non_kualifikasi_ujian_kualifikasi where id_atlet=\'{id_user_login}\';')
         print(result)

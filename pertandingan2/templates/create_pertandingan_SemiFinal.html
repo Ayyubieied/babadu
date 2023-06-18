@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+
+{% load static %}
+<!-- link the home.css -->
+{% block meta %}
+<title>Pertandingan </title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class="px-4 py-5 m-100vh text-center">
+    <!-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+    <h1 class="display-5 fw-bold my-2">Pertandingan Semi Final </h1>
+    <!-- add a timer  -->
+    <div class="container">
+      <h3 id="timer">00:00:00:00</h3>
+     
+    </div>
+      <h1 class="display-5 fw-bold my-5" id="timer"></h1>
+  
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Tim 1 </th>
+          <!-- <th scope="col"> </th> -->
+          <th scope="col">Tim 2</th>
+          <!-- <th scope="col"> </th> -->
+          <th scope="col">Skor Tim 1 </th>
+          <th scope="col">Skor Tim 2 </th>  
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            
+                <td> peserta.0.1.1 </td>
+                <!-- <td> aaa </td> -->
+                <td> A Chia - </td>
+                <!-- <td>A peserta.1.1.1 </td> -->
+           
+          <td>
+              <button type="button" class="btn btn-secondary" onclick="plusScore('row-2-a')" >+</button> 
+              <a id="row-2-a">0</a> 
+              <button type="button" class="btn btn-secondary" onclick="minusScore('row-2-a')" >-</button>
+          </td>
+          <td>
+              <button type="button" class="btn btn-secondary" onclick="plusScore('row-2-b')" >+</button> 
+              <a id="row-2-b">0</a> 
+              <button type="button" class="btn btn-secondary" onclick="minusScore('row-2-b')" >-</button>
+          </td>
+
+          </tr>
+      </tbody>
+  </table>
+  <button type="button" class="btn btn-secondary" onclick="navigateToHasilPertandingan()" >Done</button></td>
+  
+    
+    
+  </div>
+  {% block     script %}
+  <!-- make a onclick function when button mulai clicked navigate to pertandingan.html -->
+  <script>
+      
+     
+  
+      let milliseconds = 0;
+      let seconds = 0;
+      let minutes = 0;
+      let hours = 0;
+      let timer;
+      function startTimer() {
+      timer = setInterval(runTimer, 10);
+      }
+      function runTimer() {
+      milliseconds++;
+      if (milliseconds == 100) {
+          milliseconds = 0;
+          seconds++;
+          if (seconds == 60) {
+          seconds = 0;
+          minutes++;
+          if (minutes == 60) {
+              minutes = 0;
+              hours++;
+          }
+          }
+      }
+      document.getElementById("timer").innerHTML = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds) + ":" + (milliseconds > 9 ? milliseconds : "0" + milliseconds);
+      }
+      // ketika window dibuka, panggin startTImer()
+      window.onload = startTimer;
+  
+      function navigateToPertandingan(){
+          window.location.href = '../pertandingan';
+      }
+  
+      function plusScore(row){
+          var score = document.getElementById(row).innerHTML;
+          score = parseInt(score) + 1;
+          document.getElementById(row).innerHTML = score;
+          
+      }
+  
+      function minusScore(row){
+          var score = document.getElementById(row).innerHTML;
+          
+          
+          if(score == 0){
+              score = 0;
+          }
+          else{
+              score = parseInt(score) - 1;
+          }
+          document.getElementById(row).innerHTML = score;
+  
+      }
+     
+      function navigateToHasilPertandingan(){
+          window.location.href = 'create_pertandingan_Final';
+      }
+  </script>
+{% endblock script %}
+{% endblock content %}

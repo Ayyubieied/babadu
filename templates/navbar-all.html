@@ -26,8 +26,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             {% comment %} Atur href dibagian ini yah {% endcomment %}
-            <a class="dropdown-item" href="">List Ujian Kualifikasi</a>
-            <a class="dropdown-item" href="">Riwayat Ujian Kualifikasi</a>
+            <a class="dropdown-item" href="{% url 'ujian_kualifikasi:show_ujian' %}">List Ujian Kualifikasi</a>
+            <a class="dropdown-item" href="{% url 'ujian_kualifikasi:show_riwayat' %}">Riwayat Ujian Kualifikasi</a>
           </div>
         </li>
 
@@ -37,8 +37,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             {% comment %} Atur href dibagian ini yah {% endcomment %}
-            <a class="dropdown-item" href="">Daftar Event</a>
-            <a class="dropdown-item" href="">Enrolled Event</a>
+            <a class="dropdown-item" href="{% url 'daftar_event:daftar_event1' %}">Daftar Event</a>
+            <a class="dropdown-item" href="{% url 'dashboard_event:enrolled_event_table' %}">Enrolled Event</a>
           </div>
         </li>
 
@@ -48,8 +48,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             {% comment %} Atur href dibagian ini yah {% endcomment %}
-            <a class="dropdown-item" href="">Daftar Sponsor</a>
-            <a class="dropdown-item" href="">List Sponsor</a>
+            <a class="dropdown-item" href="{% url 'dashboard_event:create_sponsor' %}">Daftar Sponsor</a>
+            <a class="dropdown-item" href="{% url 'dashboard_event:read_sponsor' %}">List Sponsor</a>
           </div>
         </li>
       </ul>
@@ -85,8 +85,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             {% comment %} Atur href dibagian ini yah {% endcomment %}
-            <a class="dropdown-item" href="">List Ujian Kualifikasi</a>
-            <a class="dropdown-item" href="">Riwayat Ujian Kualifikasi</a>
+                <a class="dropdown-item" href="{% url 'ujian_kualifikasi:show_ujian' %}">List Ujian Kualifikasi</a>
+            <a class="dropdown-item" href="{% url 'ujian_kualifikasi:show_riwayat' %}">Riwayat Ujian Kualifikasi</a>
           </div>
         </li>
 
@@ -123,7 +123,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             {% comment %} Atur href dibagian ini yah {% endcomment %}
-            <a class="dropdown-item" href="">Daftar Atlet</a>
+            <a class="dropdown-item" href="{% url 'daftar_atlet:show_daftar_atlet' %}">Daftar Atlet</a>
           </div>
         </li>
 
@@ -133,9 +133,9 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             {% comment %} Atur href dibagian ini yah {% endcomment %}
-            <a class="dropdown-item" href="">Buat Ujian Kualifikasi</a>
-            <a class="dropdown-item" href="">List Ujian Kualifikasi</a>
-            <a class="dropdown-item" href="">Riwayat Ujian Kualifikasi</a>
+            <a class="dropdown-item" href="{% url 'ujian_kualifikasi:create_ujian' %}">Buat Ujian Kualifikasi</a>
+            <a class="dropdown-item" href="{% url 'ujian_kualifikasi:show_ujian' %}">List Ujian Kualifikasi</a>
+            <a class="dropdown-item" href="{% url 'ujian_kualifikasi:show_riwayat' %}">Riwayat Ujian Kualifikasi</a>
           </div>
         </li>
 
@@ -145,7 +145,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             {% comment %} Atur href dibagian ini yah {% endcomment %}
-            <a class="dropdown-item" href="">List Partai Kompetisi</a>
+            <a class="dropdown-item" href="{% url 'pertandingan2:list_pertandingan' %}">List Partai Kompetisi</a>
           </div>
         </li>
       </ul>

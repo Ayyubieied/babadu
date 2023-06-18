@@ -1,5 +1,6 @@
 
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
+{% load custom_tags %}
 
 {% load static %}
 <!-- link the home.css -->
@@ -12,11 +13,7 @@
 <div class="px-4 py-5 m-100vh text-center">
   <!-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
   <h1 class="display-5 fw-bold my-5">List Ujian Kualifikasi</h1>
-  {% if request.COOKIES|get_error   %}
-  <div class="alert alert-danger" role="alert">
-    Maaf, anda tidak bisa mengikuti ujian yang Anda pilih
-  </div>
-  {% endif %}
+  
   <table class="table table-hover">
     <thead>
       <tr>
