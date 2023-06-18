@@ -74,7 +74,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'tk_babadu.wsgi.application'
-# CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://tk-c11-babadu-production.up.railway.app']
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
