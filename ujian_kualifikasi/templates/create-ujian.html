@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% load static %}
+<!-- link the home.css -->
+{% block meta %} {% endblock meta %} {% block content %}
+<!--  make a box in the middle of screen -->
+<div class="px-4 py-5 mx-auto text-center">
+  <!-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+  <h1 class="display-10 fw-bold my-5">CREATE UJIAN KUALIFIKASI</h1>
+  {% if success %}
+  <div class="col my-3">
+    <div class="col my-3 alert alert-success justify-content-sm-center" role="alert">
+      <div><strong>Success!</strong> {{success}}</div>
+
+      <div>
+        <a type="button" class="btn btn-light" href="{% url 'login' %}">
+          Login</a>
+      </div>
+    </div>
+  </div>
+  {% endif %} {% if msg %}
+  <div class="row my-3">
+    <div class="alert alert-warning justify-content-sm-center" role="alert">
+      <strong>Error!</strong> {{msg}}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="col d-grip gap-5 d-sm-flex justify-content-sm-center">
+    <form action="" method="POST">
+      {% csrf_token %}
+
+      <table class="border-separate border-spacing-2 mb-4 justify-content-sm-center">
+        {% for field in form %}
+        <tr class="my-10">
+          <th>{{field.label_tag}}</th>
+          <td>{{ field.errors }} {{ field }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <button type="submit" class="btn btn-dark my-10">Register</button>
+    </form>
+
+    {% endblock content %}
+  </div>
+</div>

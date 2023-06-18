@@ -1,0 +1,231 @@
+{% load static %}
+{% block meta %}
+{% endblock meta %}
+{% block content %}
+
+{% if role == "atlet-kualifikasi" %}
+        <!-- Navbar untuk Atlet -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img src="https://comunidadbabadu.com/wp-content/uploads/2023/01/Babadu-Logo.png" height="30" alt="MDB Logo" loading="lazy" />
+        <span class="badge rounded-pill badge-notification bg-success">Atlet Kualifikasi</span>
+      </a>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'authentication:home' %}">Dashboard</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ujian Kualifikasi
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% comment %} Atur href dibagian ini yah {% endcomment %}
+            <a class="dropdown-item" href="">List Ujian Kualifikasi</a>
+            <a class="dropdown-item" href="">Riwayat Ujian Kualifikasi</a>
+          </div>
+        </li>
+
+                <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Event
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% comment %} Atur href dibagian ini yah {% endcomment %}
+            <a class="dropdown-item" href="">Daftar Event</a>
+            <a class="dropdown-item" href="">Enrolled Event</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sponsor
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% comment %} Atur href dibagian ini yah {% endcomment %}
+            <a class="dropdown-item" href="">Daftar Sponsor</a>
+            <a class="dropdown-item" href="">List Sponsor</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="navbar-nav ml-auto">
+        <a type="button" class="btn btn-danger mx-2" href="{% url 'authentication:logout' %}">Log Out</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+      
+{% elif role == "atlet-non-kualifikasi" %}
+  {% comment %} atlet non kualifikasi {% endcomment %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img src="https://comunidadbabadu.com/wp-content/uploads/2023/01/Babadu-Logo.png" height="30" alt="MDB Logo" loading="lazy" />
+        <span class="badge rounded-pill badge-notification bg-success">Atlet Non Kualifikasi</span>
+      </a>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href=>Dashboard</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ujian Kualifikasi
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% comment %} Atur href dibagian ini yah {% endcomment %}
+            <a class="dropdown-item" href="">List Ujian Kualifikasi</a>
+            <a class="dropdown-item" href="">Riwayat Ujian Kualifikasi</a>
+          </div>
+        </li>
+
+                
+      </ul>
+
+      <div class="navbar-nav ml-auto">
+        <a type="button" class="btn btn-danger mx-2" href="{% url 'authentication:logout' %}">Log Out</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% elif role == "umpire" %}
+        <!-- Navbar untuk Umpire -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img src="https://comunidadbabadu.com/wp-content/uploads/2023/01/Babadu-Logo.png" height="30" alt="MDB Logo" loading="lazy" />
+        <span class="badge rounded-pill badge-notification bg-success">Umpire</span>
+      </a>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'authentication:home' %}">Dashboard</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Atlet
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% comment %} Atur href dibagian ini yah {% endcomment %}
+            <a class="dropdown-item" href="">Daftar Atlet</a>
+          </div>
+        </li>
+
+               <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ujian Kualifikasi
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% comment %} Atur href dibagian ini yah {% endcomment %}
+            <a class="dropdown-item" href="">Buat Ujian Kualifikasi</a>
+            <a class="dropdown-item" href="">List Ujian Kualifikasi</a>
+            <a class="dropdown-item" href="">Riwayat Ujian Kualifikasi</a>
+          </div>
+        </li>
+
+               <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Event
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% comment %} Atur href dibagian ini yah {% endcomment %}
+            <a class="dropdown-item" href="">List Partai Kompetisi</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="navbar-nav ml-auto">
+        <a type="button" class="btn btn-danger mx-2" href="{% url 'authentication:logout' %}">Log Out</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+{% elif role == "pelatih" %}
+        <!-- Navbar untuk Pelatih -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img src="https://comunidadbabadu.com/wp-content/uploads/2023/01/Babadu-Logo.png" height="30" alt="MDB Logo" loading="lazy" />
+        <span class="badge rounded-pill badge-notification bg-success">Pelatih</span>
+      </a>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'authentication:home' %}">Dashboard</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Latih Atlet
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            {% comment %} Atur href dibagian ini yah {% endcomment %}
+            <a class="dropdown-item" href="">Create Latih Atlet</a>
+            <a class="dropdown-item" href="">List Atlet Dilatih</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="navbar-nav ml-auto">
+        <a type="button" class="btn btn-danger mx-2" href="{% url 'authentication:logout' %}">Log Out</a>
+      </div>
+    </div>
+  </div>
+</nav>    
+{% else %}
+{% comment %} belum login {% endcomment %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <img
+            src="https://comunidadbabadu.com/wp-content/uploads/2023/01/Babadu-Logo.png"
+            height="30"
+            alt="MDB Logo"
+            loading="lazy"
+          />
+
+
+        </a>
+        
+       
+    </div>
+  </nav>
+
+
+
+{% endif %}
+
+{% endblock content %}

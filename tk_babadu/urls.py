@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("authentication.urls")),
+    path('', include(('authentication.urls', 'authentication'),)),
+    path('ujian-kualifikasi/', include(('ujian_kualifikasi.urls', 'ujian_kualifikasi'),)),
 ]
